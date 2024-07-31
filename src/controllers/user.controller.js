@@ -8,7 +8,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 const generateAccesAndRefreshToken = async(userId)=>{
     try {
         const user = await User.findOne(userId)
-        const refreshToken = user.generateRefereshToken()
+        const refreshToken = user.generateRefreshToken()
         const accessToken = user.generateAccessToken()
         user.refreshToken = refreshToken
         await user.save({validateBeforeSave: false})
