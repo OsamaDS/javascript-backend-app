@@ -269,7 +269,7 @@ const updateUserAvatar = asyncHandler(async(req, res)=>{
         throw new ApiError(400, "Error uploading while avatar")
     }
 
-    const user = await User.findById(req.user?._id)
+    let user = await User.findById(req.user?._id)
     
     user.avatar = avatar.url
     
